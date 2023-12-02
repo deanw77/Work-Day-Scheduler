@@ -41,6 +41,8 @@ body {
     background-color: #ffffff;
     color: #000000;
     border-top: 1px dashed #000000;
+    box-shadow: 5px 0 5px -2px #000000;
+    z-index: 1;
   }
   
   .past {
@@ -59,16 +61,16 @@ body {
   }
   
   .saveBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-left: 1px solid black;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
     background-color: #06aed5;
     color: white;
     font-size: 30px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    box-shadow: -5px 0 5px -2px #000000; 
   }
   
   .saveBtn:hover {
@@ -76,4 +78,3 @@ body {
     transition: all 0.3s ease-in-out;
     cursor: pointer;
   }
-  
