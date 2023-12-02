@@ -107,3 +107,11 @@ for (let i = 0; i < tasks.length; i++){
     let grab = localStorage.getItem(stringTest);
     document.getElementById(stringTest).textContent = grab;
 }
+
+// TODO: Add welcome message to the header
+
+// TODO: Add a Clear All button at the bottom
+
+// TODO: Add a Save All button to the bottom
+
+// TODO: Add a Tick or an X to show if an item is saved to local storage
