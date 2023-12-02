@@ -37,7 +37,7 @@ for (let i = 0; i < 10; i++) {
     hour = 9;
     // hourBlock is each complete row
     hourBlock = document.createElement("div");
-    hourBlock.classList.add("row", "flex-row");
+    hourBlock.classList.add( "row", "flex-row");
 
     // timeBox is the for the hour labels
     timeBox = document.createElement("div");
@@ -51,7 +51,7 @@ for (let i = 0; i < 10; i++) {
 
     // timeBlock is the textArea for each row
     timeBlock = document.createElement("div");
-    timeBlock.classList.add("textarea", "col-7", "col-sm-10")
+    timeBlock.classList.add("time-block", "d-flex", "align-items-center", "col-7", "col-sm-10")
     timeBlock.setAttribute("data-number", hourCheck);
     // Compare the current time to block time and put in correct background
     if (parseInt(currentHour) > hourCheck){
@@ -77,4 +77,22 @@ for (let i = 0; i < 10; i++) {
 }
 // -----------------------------------------------------------------
 
+// Create Text Area for each 1 hour slot
+const tasks = document.querySelectorAll(".time-block");
 
+let userTextArea;
+// Add each of the textAreas
+for (let i = 0; i < tasks.length; i++){
+    userTextArea = document.createElement("textarea");
+    userTextArea.setAttribute("id", tasks[i].dataset.number);
+    userTextArea.classList.add("textarea")
+
+    tasks[i].append(userTextArea);
+}
+
+// Get Save button to save to local storage
+// Setup the local storage
+
+// Have save button save each element to it's local storage spot
+
+// Populate daily tasks from local storage
