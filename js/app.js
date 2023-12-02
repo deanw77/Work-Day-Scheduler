@@ -84,7 +84,7 @@ let userTextArea;
 // Add each of the textAreas
 for (let i = 0; i < tasks.length; i++){
     userTextArea = document.createElement("textarea");
-    userTextArea.setAttribute("id", tasks[i].dataset.number);
+    userTextArea.setAttribute("id", "hour" + tasks[i].dataset.number);
     userTextArea.classList.add("textarea")
 
     tasks[i].append(userTextArea);
@@ -92,7 +92,18 @@ for (let i = 0; i < tasks.length; i++){
 
 // Get Save button to save to local storage
 // Setup the local storage
-
 // Have save button save each element to it's local storage spot
+document.querySelectorAll('.saveBtn').forEach(item => {
+    item.addEventListener('click', function(event) {
+        let activeNumber = "hour" + this.dataset.number;
+        let textContent = document.getElementById(activeNumber).value;
+        localStorage.setItem(activeNumber, textContent);
+    })
+});
 
 // Populate daily tasks from local storage
+for (let i = 0; i < tasks.length; i++){
+    let stringTest = "hour" + (i + 9);
+    let grab = localStorage.getItem(stringTest);
+    document.getElementById(stringTest).textContent = grab;
+}
