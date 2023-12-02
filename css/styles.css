@@ -38,6 +38,7 @@ body {
   }
   
   .hour {
+    width: 200px;
     background-color: #ffffff;
     color: #000000;
     border-top: 1px dashed #000000;
@@ -64,10 +65,15 @@ body {
     border-bottom-right-radius: 15px;
     background-color: #06aed5;
     color: white;
+    font-size: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
-  .saveBtn i:hover {
-    font-size: 20px;
+  .saveBtn:hover {
+    font-size: 40px;
     transition: all 0.3s ease-in-out;
   }
   
