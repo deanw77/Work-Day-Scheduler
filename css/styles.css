@@ -38,7 +38,6 @@ body {
   }
   
   .hour {
-    width: 200px;
     background-color: #ffffff;
     color: #000000;
     border-top: 1px dashed #000000;
@@ -75,5 +74,6 @@ body {
   .saveBtn:hover {
     font-size: 40px;
     transition: all 0.3s ease-in-out;
+    cursor: pointer;
   }
   

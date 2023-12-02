@@ -34,11 +34,10 @@ let saveBtn;
 for (let i = 0; i < 10; i++) {
     hour = 9;
     hourBlock = document.createElement("div");
-    hourBlock.classList.add("time-block", "row");
+    hourBlock.classList.add("time-block", "row", "d-flex", "flex-row");
 
     timeBox = document.createElement("div");
-    timeBox.classList.add("hour");
-    timeBox.setAttribute("style", "width:10%");
+    timeBox.classList.add("hour",  "d-flex","align-items-center", "justify-content-end", "col-3", "col-sm-1");
 
     hour = hour + i;
     let hourCheck = hour;
@@ -47,9 +46,9 @@ for (let i = 0; i < 10; i++) {
     timeBox.textContent = hour + AMPM;
 
     timeBlock = document.createElement("div");
-    timeBlock.setAttribute("style", "width:80%");
+    timeBlock.classList.add("textarea", "col-7", "col-sm-10")
     if (parseInt(currentHour) > hourCheck){
-        timeBlock.classList.add("past", "textarea");
+        timeBlock.classList.add("past");
         
     } else if (parseInt(currentHour) < hourCheck) {
         timeBlock.classList.add("future");
@@ -58,8 +57,8 @@ for (let i = 0; i < 10; i++) {
     }
 
     saveBtn = document.createElement("div");
-    saveBtn.classList.add("saveBtn");
-    saveBtn.setAttribute("style", "width:10%")
+    saveBtn.classList.add("saveBtn", "col-2", "col-sm-1");
+    //saveBtn.setAttribute("style", "width:20%")
     saveBtn.textContent = "💾";
 
     container.append(hourBlock);
