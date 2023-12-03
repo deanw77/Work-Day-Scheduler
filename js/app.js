@@ -98,6 +98,7 @@ document.querySelectorAll('.saveBtn').forEach(item => {
         let activeNumber = "hour" + this.dataset.number;
         let textContent = document.getElementById(activeNumber).value;
         localStorage.setItem(activeNumber, textContent);
+        location.reload()
     })
 });
 
@@ -124,10 +125,30 @@ if (currentHour < 12) {
 
 header.append(welcomeMessage);
 
+// Add a delete button to clear each task
+let deleteTask;
+
+for (let i = 0; i < tasks.length; i++){
+    let stringTest = "hour" + (i + 9);
+    let notEmpty = document.getElementById(stringTest).textContent;
+    if (notEmpty !== '') {
+        deleteTask = document.createElement("button");
+        deleteTask.classList.add("fa", "fa-trash", "trash");
+        deleteTask.setAttribute("style", "font-size:20px; border:none; background:none;");
+        deleteTask.setAttribute("data-number", i + 9);
+        tasks[i].append(deleteTask);
+    }
+}
+
+document.querySelectorAll('.trash').forEach(item => {
+    item.addEventListener('click', function(event) {
+        let activeNumber = "hour" + this.dataset.number;
+        let blockOfText = document.getElementById(activeNumber).value;
+        localStorage.setItem(activeNumber, '');
+        location.reload()
+    })
+});
+
 // TODO: Add a Clear All button at the bottom
 
 // TODO: Add a Save All button to the bottom
-
-// TODO: Add a Tick or an X to show if an item is saved to local storage
-
-// TODO: Add a delete button to clear each task
