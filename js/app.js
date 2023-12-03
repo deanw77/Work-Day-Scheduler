@@ -149,6 +149,19 @@ document.querySelectorAll('.trash').forEach(item => {
     })
 });
 
-// TODO: Add a Clear All button at the bottom
-
 // TODO: Add a Save All button to the bottom
+const footer = document.querySelector('footer');
+footer.classList.add("d-flex", "justify-content-center", "mb-5");
+
+const saveAllBtn = document.createElement('button');
+saveAllBtn.classList.add("btn", "btn-primary", "btn-lg", "mx-3");
+saveAllBtn.textContent = "Save All";
+
+footer.append(saveAllBtn)
+
+// TODO: Add a Clear All button at the bottom
+const clearAllBtn = document.createElement('button');
+clearAllBtn.classList.add("btn", "btn-primary", "btn-lg", "mx-3");
+clearAllBtn.textContent = "Clear All";
+
+footer.append(clearAllBtn)

@@ -29,6 +29,7 @@ https://deanw77.github.io/Work-Day-Scheduler/
 # Project Overview
 As someone who likes to start each day with a to-to list this was a fun assignment. I found this a very practical project in that I will likely use the finished product daily now. 
 I added in a few additional features that I though would be nice to have. A delete button for removing individual tasks as well as a delete all button for clearing everything at the end of the day. 
+I like that the delete entry only displays on boxes that have an entry.
 I also, on a least a couple of occasions filled out several boxes while forgetting to click the save button. So once I triggered a save button the previous other entries would be lost. To solve this I added a Save All button to the bottom so I could plan my entire day then save everything in one go. 
 
 # Final Result
