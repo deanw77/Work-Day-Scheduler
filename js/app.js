@@ -159,9 +159,14 @@ saveAllBtn.textContent = "Save All";
 
 footer.append(saveAllBtn)
 
-// TODO: Add a Clear All button at the bottom
+// Add a Clear All button at the bottom
 const clearAllBtn = document.createElement('button');
 clearAllBtn.classList.add("btn", "btn-primary", "btn-lg", "mx-3");
 clearAllBtn.textContent = "Clear All";
 
 footer.append(clearAllBtn)
+
+clearAllBtn.addEventListener('click', function(event) {
+    localStorage.clear();
+    location.reload();
+});
