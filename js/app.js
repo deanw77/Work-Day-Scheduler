@@ -108,10 +108,26 @@ for (let i = 0; i < tasks.length; i++){
     document.getElementById(stringTest).textContent = grab;
 }
 
-// TODO: Add welcome message to the header
+// Add welcome message to the header
+const header = document.querySelector('header');
+
+let welcomeMessage = document.createElement('h5');
+welcomeMessage.setAttribute("style", "color:green; font-weight:bold")
+
+if (currentHour < 12) {
+    welcomeMessage.textContent = "Good Morning, You have the whole day ahead of you!"; 
+} else if (currentHour < 15) {
+    welcomeMessage.textContent = "Midday, You've still got time to be productive";
+} else {
+    welcomeMessage.textContent = "Not long to go now, Let's get finished up";
+}
+
+header.append(welcomeMessage);
 
 // TODO: Add a Clear All button at the bottom
 
 // TODO: Add a Save All button to the bottom
 
 // TODO: Add a Tick or an X to show if an item is saved to local storage
+
+// TODO: Add a delete button to clear each task
