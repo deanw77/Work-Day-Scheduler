@@ -143,7 +143,6 @@ for (let i = 0; i < tasks.length; i++){
 document.querySelectorAll('.trash').forEach(item => {
     item.addEventListener('click', function(event) {
         let activeNumber = "hour" + this.dataset.number;
-        let blockOfText = document.getElementById(activeNumber).value;
         localStorage.setItem(activeNumber, '');
         location.reload()
     })
@@ -151,13 +150,23 @@ document.querySelectorAll('.trash').forEach(item => {
 
 // TODO: Add a Save All button to the bottom
 const footer = document.querySelector('footer');
-footer.classList.add("d-flex", "justify-content-center", "mb-5");
-
 const saveAllBtn = document.createElement('button');
+
+footer.classList.add("d-flex", "justify-content-center", "mb-5");
 saveAllBtn.classList.add("btn", "btn-primary", "btn-lg", "mx-3");
 saveAllBtn.textContent = "Save All";
 
 footer.append(saveAllBtn)
+
+saveAllBtn.addEventListener('click', function(event) {
+    for (let i = 0; i < tasks.length; i++){
+        let mySelector = "hour" + (i + 9);
+        let mytext = document.getElementById(mySelector).value;
+
+        localStorage.setItem(mySelector, mytext);
+        location.reload();
+    }
+});
 
 // Add a Clear All button at the bottom
 const clearAllBtn = document.createElement('button');
