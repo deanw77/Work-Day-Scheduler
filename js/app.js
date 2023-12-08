@@ -1,5 +1,5 @@
 // Display the current date in the header
-const currentDay = document.querySelector("#currentDay");
+const currentDay = $("#currentDay");
 
 const currentDate = dayjs(); 
 const formattedDate = currentDate.format('dddd[,] MMMM D'); 
@@ -17,11 +17,11 @@ const nthNumber = (D) => {
 };
 
 // Display todays date, with the correct suffix to the screen.
-currentDay.innerHTML = formattedDate + nthNumber(day);
+currentDay.html(formattedDate + nthNumber(day));
 
 // -----------------------------------------------------------------
 // Add Time Blocks
-const container = document.querySelector(".container");
+const container = $(".container");
 const currentHour = currentDate.format('H')
 
 let hourBlock;
@@ -31,42 +31,42 @@ let AMPM = "AM";
 let timeBlock;
 let saveBtn;
 
-container.classList.add("my-4");
+container.addClass("my-4");
 // Loop to create all the blocks
 for (let i = 0; i < 10; i++) {
     hour = 9;
     // hourBlock is each complete row
-    hourBlock = document.createElement("div");
-    hourBlock.classList.add( "row", "flex-row");
+    hourBlock = $("<div>");
+    hourBlock.addClass("row flex-row");
 
     // timeBox is the for the hour labels
-    timeBox = document.createElement("div");
-    timeBox.classList.add("hour",  "d-flex", "align-items-center", "justify-content-end", "col-3", "col-sm-1");
+    timeBox = $("<div>");
+    timeBox.addClass("hour d-flex align-items-center justify-content-end col-3 col-sm-1");
     // Loop through to apply the correct hourlabel for each box
     hour = hour + i;
     let hourCheck = hour;
     if (hour > 12) hour = hour - 12;
     if (hour >= 12) AMPM = "PM";
-    timeBox.textContent = hour + AMPM;
+    timeBox.text(hour + AMPM);
 
     // timeBlock is the textArea for each row
-    timeBlock = document.createElement("div");
-    timeBlock.classList.add("time-block", "d-flex", "align-items-center", "col-7", "col-sm-10")
-    timeBlock.setAttribute("data-number", hourCheck);
+    timeBlock = $("<div>");
+    timeBlock.addClass("time-block d-flex align-items-center col-7 col-sm-10")
+    timeBlock.attr("data-number", hourCheck);
     // Compare the current time to block time and put in correct background
     if (parseInt(currentHour) > hourCheck){
-        timeBlock.classList.add("past");
+        timeBlock.addClass("past");
     } else if (parseInt(currentHour) < hourCheck) {
-        timeBlock.classList.add("future");
+        timeBlock.addClass("future");
     } else {
-        timeBlock.classList.add("present");
+        timeBlock.addClass("present");
     }
 
     // Add save button with save icon for each row
-    saveBtn = document.createElement("div");
-    saveBtn.classList.add("saveBtn", "col-2", "col-sm-1");
-    saveBtn.setAttribute("data-number", hourCheck);
-    saveBtn.textContent = "💾";
+    saveBtn = $("<div>");
+    saveBtn.addClass("saveBtn col-2 col-sm-1");
+    saveBtn.attr("data-number", hourCheck);
+    saveBtn.text("💾");
 
     // For each hour append the containerwith a block
     // Then append each block with time, text area and save button
@@ -78,12 +78,12 @@ for (let i = 0; i < 10; i++) {
 // -----------------------------------------------------------------
 
 // Create Text Area for each 1 hour slot
-const tasks = document.querySelectorAll(".time-block");
+const tasks = $(".time-block");
 
 let userTextArea;
 // Add each of the textAreas
 for (let i = 0; i < tasks.length; i++){
-    userTextArea = document.createElement("textarea");
+    let userTextArea = document.createElement("textarea");
     userTextArea.setAttribute("id", "hour" + tasks[i].dataset.number);
     userTextArea.classList.add("textarea")
 
@@ -110,17 +110,17 @@ for (let i = 0; i < tasks.length; i++){
 }
 
 // Add welcome message to the header
-const header = document.querySelector('header');
+const header = $('header');
 
-let welcomeMessage = document.createElement('h5');
-welcomeMessage.setAttribute("style", "color:green; font-weight:bold")
+let welcomeMessage = $('<h5>');
+welcomeMessage.css({"color": "green", "font-weight": "bold"});
 
 if (currentHour < 12) {
-    welcomeMessage.textContent = "Good Morning, You have the whole day ahead of you!"; 
+    welcomeMessage.text("Good Morning, You have the whole day ahead of you!"); 
 } else if (currentHour < 15) {
-    welcomeMessage.textContent = "Midday, You've still got time to be productive";
+    welcomeMessage.text("Midday, You've still got time to be productive");
 } else {
-    welcomeMessage.textContent = "Not long to go now, Let's get finished up";
+    welcomeMessage.text("Not long to go now, Let's get finished up");
 }
 
 header.append(welcomeMessage);
